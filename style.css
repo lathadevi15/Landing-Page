@@ -1,0 +1,604 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  font-family: Arial, sans-serif;
+  
+  background-repeat: no-repeat;
+  
+ 
+  margin: 0; /* Remove default body margin */
+}
+.page-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 80px auto 0;  /* Centers horizontally */
+  padding: 50px 16px 0;
+  background: linear-gradient(180deg, #050458, #700f58);
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* This centers inner content */
+}
+
+/* Make sure all child elements stay within container width */
+.page-container > * {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center; /* Optional: center text if needed */
+}
+
+
+/* Full-width fixed navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #050458;
+  color: white;
+  z-index: 1000;
+}
+
+/* Inner container behaves like page-container */
+.navbar-inner {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Optional button styling */
+
+/* Responsive padding adjustment */
+@media (max-width: 576px) {
+  .navbar-inner {
+    padding: 12px 16px;
+  }
+
+  .nav-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .logo img {
+    height: 40px;
+    width: auto;
+  }
+}
+
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-button {
+  background-color: #3f1a61;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:0.3s ease-in-out; 
+}
+
+.nav-button:hover {
+  background-color: #ffffff;
+  border-radius: 50px;
+  color: #000;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;         /* Vertically center the inner content */
+  justify-content: center;     /* Horizontally center the inner content */
+  height: auto;
+  width: 65%;
+  margin: 0 auto;      
+  padding-top: 150px;  
+  padding-bottom: 30px;      /* Horizontally center the container itself */
+  
+}
+
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.head {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-weight: 600;
+  font-size: 60px;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+
+  animation: slideUp 1s ease-out;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+.sub-head {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+
+  animation: slideUp 1s ease-out 1.0s; /* duration, easing, delay */
+  animation-fill-mode: both;
+}
+
+@keyframes wobble {
+  0% { transform: translateX(0%); }
+  15% { transform: translateX(-25%) rotate(-5deg); }
+  30% { transform: translateX(20%) rotate(3deg); }
+  45% { transform: translateX(-15%) rotate(-3deg); }
+  60% { transform: translateX(10%) rotate(2deg); }
+  75% { transform: translateX(-5%) rotate(-1deg); }
+  100% { transform: translateX(0%) rotate(0deg); }
+}
+
+@keyframes wobble {
+  0% { transform: translateX(0%); }
+  15% { transform: translateX(-25%) rotate(-5deg); }
+  30% { transform: translateX(20%) rotate(3deg); }
+  45% { transform: translateX(-15%) rotate(-3deg); }
+  60% { transform: translateX(10%) rotate(2deg); }
+  75% { transform: translateX(-5%) rotate(-1deg); }
+  100% { transform: translateX(0%) rotate(0deg); }
+}
+.btns{
+  justify-content: space-between;
+}
+.git {
+  background: linear-gradient(90deg, #040357, #000000);
+  padding: 15px 25px;
+  border-radius: 50px;
+  color: white;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  margin-right: 20px;
+
+  /* Hover transition only handles hover effects */
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+
+  /* Entrance wobble animation - runs once */
+  animation: wobble 1s ease-out 2s;
+  
+}
+
+/* Hover works now — no animation override */
+.git:hover {
+  background-color: #0056b3;
+  transform: scale(1.1); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.wtc{
+   background: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  color: rgb(255, 255, 255);
+  border: 2px solid white;
+  font-family: 'Roboto', sans-serif;
+   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  animation: slideUp 1s ease-out 2.0s; /* duration, easing, delay */
+  animation-fill-mode: both;
+  
+}
+
+.wtc:hover {
+   background: rgb(177, 5, 168);
+  padding: 10px 25px;
+  border-radius: 50px;
+  color: rgb(255, 255, 255);
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid rgb(177, 5, 168);
+
+  transform: scale(1.1); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+}
+.whatsapp-icon {
+  color: rgb(255, 255, 255) !important;
+  font-size: 20px !important;
+}
+.about-container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 60px 16px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers internal .about content */
+}
+
+
+/* Default: flex column */
+/* Wrapper to center content */
+.about-wrapper {
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+/* Main about container */
+.about {
+  display: flex;
+  flex-direction: column; /* stack vertically by default (mobile) */
+  width: 100%;
+  max-width: 1600px;
+  gap: 30px;
+  box-sizing: border-box;
+  margin: 30px auto;
+}
+
+/* Each column takes full width on mobile */
+.column {
+  width: 100%;
+}
+
+.about-img {
+display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.about-img img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+}
+
+@media (max-width: 767px) {
+  .about-img img {
+    max-width: 330px; /* or adjust as needed */
+  }
+  .about-img {
+display: flex;
+  align-items: center;
+  justify-content:left;
+  margin: 0 auto;
+}
+
+.about-text{
+  max-width: 250px;
+}
+}
+
+/* Headings and paragraph */
+.about-text h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.about-text p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.about-btn{
+  background: #000;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  transition: 0.3s ease-out;
+}
+
+.about-btn:hover{
+  background: #ffffff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: rgb(0, 0, 0);
+  border: 2px solid black;
+  font-family: 'Roboto', sans-serif;
+}
+/* Responsive layout: columns side-by-side on tablets+ */
+@media (min-width: 768px) {
+  .about {
+    flex-direction: row; /* row layout on medium+ screens */
+  }
+
+  .column {
+    width: 50%;
+  }
+}
+
+
+/* Columns default to 100% width */
+.column {
+  width: 100%;
+  
+}
+
+
+/* ✅ CENTER ABOUT SECTION ON SMALL SCREENS */
+@media (max-width: 1199px) {
+  .about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.benefits-main {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  background: #050458;
+  color: white;
+}
+
+.benefits-head {
+  text-align: center;
+  font-weight: 700;
+  color: white;
+}
+
+.benefits-column {
+  position: relative;
+  overflow: hidden;
+  background: #050458;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.benefits-column:hover  {
+  background: white;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.benefits-icon {
+  font-size: 44px;
+  color: #6c17ce;
+  margin-right: 10px;
+  border-radius: 100px;
+  border: 2px solid #6c17ce;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.benefits-head {
+  color: white;
+  font-weight: 600;
+}
+
+.benefits-desc {
+  color: rgb(213, 216, 219) !important;
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.benefits-column:hover .benefits-col-head {
+  color: #070808;
+  font-weight: 600;
+}
+
+.benefits-column:hover .benefits-desc {
+  color: #000000 !important;
+}
+
+/* Responsive layout: show 2 per row on tablets, 4 per row on desktops */
+@media (min-width: 768px) {
+  .benefits-column {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  
+    
+  }
+}
+
+@media (max-width: 767px) {
+   .benefits-column {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  width: 80%;
+    
+  }
+
+  
+} 
+
+
+.features-main{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1600px;
+}
+.features {
+  display: flex;
+  justify-content: space-between; 
+  gap: 10px;    
+  padding: 0 20px;      
+  margin: 30px 0; 
+  flex-wrap: wrap;             /* Allow columns to wrap */        /* Optional: adds uniform spacing */
+}
+
+.features > .column {
+  display: flex;               /* Enable Flexbox */
+  flex-direction: column;      /* Stack items vertically */
+  align-items: center;         /* Center horizontally */
+  justify-content: center;     /* Center vertically */
+  flex: 1;                     /* Equal width columns */
+  padding: 20px;
+  border-radius: 8px;
+  margin: 0 auto;
+               /* Or a fixed height if needed */
+ 
+}
+
+.features-head{
+  text-align: left;
+  font-weight: 600;
+}
+
+.features-desc{
+  text-align: left;
+  color: rgb(101, 104, 107);
+}
+.features-list{
+  padding: 0 20px 0 0;
+}
+.features-icon{
+  margin-right: 10px;
+  color:#6c17ce ;
+}
+
+.agencies-main{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1600px;
+}
+.agencies{
+  background: #f4f4fd;
+  padding-top: 20px;
+}
+.agencies-head{
+  text-align: center;
+  font-weight: 700;
+  
+}
+.agencies-column {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Curtain effect using pseudo-element */
+.agencies-column::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgb(73, 2, 87); /* Darker curtain for contrast */
+  z-index: 1;
+  transition: left 0.4s ease;
+}
+@media (max-width: 767px) {
+.agencies-column {
+    width: 90%;
+  }
+  
+} 
+/* Slide the curtain in from left on hover */
+.agencies-column:hover::before {
+  left: 0;
+}
+
+/* Ensure text stays above the curtain */
+.agencies-column * {
+  position: relative;
+  z-index: 2;
+  color: rgb(0, 0, 0);
+  transition: color 0.3s ease;
+}
+.agencies-column:hover * {
+  color: #fff; /* On hover */
+}
+
+.agencies-col-head{
+  font-weight: 600;
+  color: #040357;
+}
+
+.agencies-icon{
+  font-size: 50px;
+  
+}
+.agencies-desc{
+  color: #3f4141;
+}
+.banner{
+  background: #700f58;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+    width: 100%;
+  max-width: 1600px;
+}
+.banner-desc{
+  font-size: 30px;
+
+}
+.banner-head{
+  color: #f06ad3;
+  font-weight: 800;
+}
+.banner-btn{
+  border-radius: 50px;
+  background: #e6e6e7;
+  color: #000000;
+  font-weight: 600;
+  border: 2px solid #700f58;
+   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.banner-btn:hover{
+  border: 2px solid #e6e6e7;
+  color: #000000;
+  background: #e6e6e7;
+  transform: scale(1.1); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.contact-btn{
+  border-radius: 50px;
+  background: #040357;
+  padding: 10px 20px;
+}
+.contact-btn:hover{
+  border-radius: 50px;
+  background: #7a0471;
+  padding: 10px 20px;
+    
+}
